@@ -20,7 +20,7 @@
             </table>
             <div class="NewItemDescription">
                 <div class="NewItemElementName">description : </div>
-                <textarea id="description">I need this feature!</textarea>
+                <textarea id="description">I need this feature very much!</textarea>
             </div>
             <div id="new_item_data"></div>
         </div>
@@ -45,7 +45,7 @@ $(function() {
     var description = $("#description");
     errorLabel.hide();
 
-    $( "#add-new-item" ).click(function() { $( "#new-item-form" ).dialog( "open" ); } );
+    $( "#add-new-item" ).button().click(function() { $( "#new-item-form" ).dialog( "open" ); } );
 
     $( "#new-item-form" ).dialog({
         autoOpen: false,
