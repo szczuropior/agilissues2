@@ -1,0 +1,33 @@
+.NotesAndTasks th {font-size:15px; text-align:left; color:#769869; }
+.NotesAndTasks td { border-radius:6px; font: 17px Georgia; color:#424242; border: 3px solid #e0e0e0; width: 24em; height: 3em; }
+.NotesAndTasks textarea { font-size: 1 em; width: 24em; height: 8em; border: 2px solid #e0e0e0; }
+.NotesAndTasksMenu { float: right; }
+.NotesAndTasksMenu span { font-size: 14px; font-style:normal; }
+
+.AdditionalInfoName { background-color:#D7EFE9; color:red; }
+.AdditionalInfoElement { background-color:#ffffff; }
+.Item_Details_Table { float: left; }
+
+.ActionsPanel {border: 3px solid #f6f6f6; }
+.Actions a { color:#424242; padding:1px 6px;}
+.Action_Button { border:solid thin #A6A6A0; padding:2px 6px; float:left; }
+.Action_Button a { display:block; color:#424242; margin:2px; }
+.Action_Button a:hover { background-color:#A6A6A0; }
+.Separator { width:2em; }
+.Title { color:#769869; font-weight:bold; font-size:15px; }
+.Changeable:hover .ChangeButton { visibility:visible; display:inline; }
+.ChangeButton { visibility:hidden; display:inline; }
+.SP_Table { position:absolute; background-color:#ffffff;}
+.RunAction { font-style: italic; }
+.Separator2 { width:3em; }
+.SameLineTables { }
+
+.AdditionalData { display:none; }
+.ActionPanel { display:none; }
+
+/* nice input display : */
+.ItemDataInput input[type="text"] { border: 1px solid white; border-bottom: thin dashed #a8a8a8; }
+.ItemDataInput input[type="text"]:hover { border: 1px solid #006; }
+
+.InputErrorMessage { color:red; }
+.InputError { border:solid thin red; }

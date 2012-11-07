@@ -1,0 +1,44 @@
+@(pbItem: models.pb.item.PBItem)
+
+<table class="ActionsPanel">
+<tr>
+<td>
+<table class="Actions">
+    <tr>
+        <td class="Title">&nbsp;&raquo;&nbsp;</td>
+        <td><a href="#" class="RunAction">see @pbItem.issueIdInTheTracker</a></td>
+        <td class="Separator"/>
+    </tr>
+    <tr>
+        <td class="Title">&nbsp;&raquo;&nbsp;</td>
+        <td><a href="#" class="RunAction">split item</a></td>
+        <td class="Separator"/>
+    </tr>
+    <tr>
+        <td class="Title">&nbsp;&raquo;&nbsp;</td>
+        <td><a href="#" class="RunAction">delete item</a></td>
+        <td class="Separator"/>
+    </tr>
+</table>
+</td>
+<td>
+<div>@item.itemInfo(pbItem)</div>
+</td>
+<td>
+<table class="Changeable">
+    <tr>
+        <td class="RunAction">more &nbsp;&raquo;&nbsp;</td>
+        <td><a href="#" class="RunAction ChangeButton">modify item description</a></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="#" class="RunAction ChangeButton">modify issue tracker data</a></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</td>
+</tr>
+</table>

@@ -1,0 +1,19 @@
+@(question: String, newValueDescription: String)
+<div style="background-color: white; border: 1px solid black; display: block; text-align: center; padding: 30px;">
+    <form>
+        <div>@question</div>
+        <br/>
+        <textarea val="@newValueDescription" rows="3" cols="30"></textarea>
+        <br/>
+        <div>
+            <span>Color: </span>
+            <input id="colorpicker" type="text"/>
+        </div>
+        <br/>
+        <div id="error_info"></div>
+        <br/>
+        <a href="#"> YES, I am </a>
+        <span> &nbsp; </span>
+        <a href="#"> NO, cancel </a>
+    </form>
+</div>

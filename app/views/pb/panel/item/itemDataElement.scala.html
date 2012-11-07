@@ -1,0 +1,17 @@
+@(elementType: String, elementValue: String)(itemId: Long, cssClass: String)
+
+<span class="Changeable ItemDataInput">
+    <input type="text" class="@cssClass" name="@elementType" value="@elementValue" class="Autocomplete"
+            onchange="@handleValueChange()"
+            onblur="@handleValueChange()"
+            onkeyup="@handleValueChange()"/>
+    <div class="AddNewElementLink" id="@newElementLinkId">
+        <a href="#">
+            <span class="NewElementButtonLabel" title="will add new @elementType">add</span>
+        </a>
+    </div>
+    <a href="#" class="ChangeButton RunAction">&raquo;see</a> &nbsp;
+</span>
+
+@handleValueChange() = @{ "handleItemDataValueChange('" + elementType + "', this.value, '" + newElementLinkId + "');"}
+@newElementLinkId = @{ "newElementLink_" + elementType + itemId }

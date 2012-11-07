@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# product backlog
+GET     /pb            controllers.Application.productBacklog
+
+# item data
+GET     /clients/all             controllers.ItemDataController.allClients
+GET     /teams/all               controllers.ItemDataController.allTeams
+GET     /features/all            controllers.ItemDataController.allFeatures
+GET     /statuses/all            controllers.ItemDataController.allStatuses
+GET     /issue-types/all         controllers.ItemDataController.allIssueTypes
+
+GET     /client/:value/exists             controllers.ItemDataController.isClient(value: String)
+GET     /team/:value/exists               controllers.ItemDataController.isTeam(value: String)
+GET     /feature/:value/exists            controllers.ItemDataController.isFeature(value: String)
+GET     /status/:value/exists             controllers.ItemDataController.isStatus(value: String)
+GET     /issue-type/:value/exists         controllers.ItemDataController.isIssueType(value: String)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

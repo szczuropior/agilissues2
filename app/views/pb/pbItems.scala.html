@@ -1,0 +1,91 @@
+@(pbItems: Seq[models.pb.item.PBItem])
+<table class="AlignedTable">
+    <tr class="BacklogItemHeader">
+        <th class="PB_Status" title="Status"><img src="@getIcon("status_h.png")"/></th>
+        <th class="PB_SP" title="Story Points">SP</th>
+        <th class="PB_Client" title="Client"><img src="@getIcon("client_h.png")"/></th>
+        <th class="PB_Team" title="Team"><img src="@getIcon("team_h.png")"/></th>
+        <th class="PB_Feature" title="Feature"><img src="@getIcon("feature_h.png")"/></th>
+        <th class="PB_Item_Name">Item Description</th>
+        <th class="PB_BugzillaNr" title="Issue tracker request ID, goes to issue tracker page">Issue #</th>
+        <th class="PB_IssueType" title="Issue type (error / enhancement / ...)">Type</th>
+        <th class="PB_IssueTrackerMore" title="Show additional issue tracker information">&laquo;</th>
+    </tr>
+</table>
+
+<ul id="pb_items" class="PBItemsContainer">
+    @pbItems.map(pbItem(_))
+</ul>
+
+
+@pbItem(item: models.pb.item.PBItem) = {
+    <li id="pb_item" class="PBItemListElement">
+        <table class="AlignedTable">
+            <tr class="BacklogItem">
+                <td class="PB_Status"><img alt="Stat" title="@item.status.name" src="@getIcon("status.png")"
+                    style="background-color: #@item.status.colorStr;"/></td>
+                <td class="PB_SP"><span>---</span></td>
+                <td class="PB_Client"><img style="background-color: #@item.client.colorStr;"
+                                           class="Client_Img" alt="cli" title="@item.client.name" src="@getIcon("client.png")"/></td>
+                <td class="PB_Team"><img class="Team_Img" style="background-color: #@item.team.colorStr;"
+                                         alt="team" title="@item.team.name" src="@getIcon("team.png")"/></td>
+                <td class="PB_Feature"><img style="background-color: #@item.status.colorStr;"
+                                            class="Feature_Img" alt="ftr" title="@item.feature.name" src="@getIcon("feature.png")"/></td>
+                <td class="PB_Item">
+                    <span class="PB_ItemMenus">
+                        <span>&nbsp;
+                            <span class="PB_ItemActions" id="actions_link" title="Displays item information + actions panel"
+                                  onclick="$('#@{generateActionsId(item.id)}').toggle();"> action </span>
+                        &nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="PB_ItemInfo" id="info_link" title="Shows notes, tasks and story points"
+                              onclick="$('#@{generateNotesId(item.id)}').toggle();"> notes </span>
+                        <span>&nbsp;</span>
+                    </span>
+                    <span class="PB_Item_Descr">@item.description</span>
+                </td>
+                <td class="PB_Separator"><br></td>
+                <td class="PB_BugzillaNr"><a id="request_link" href="#">@item.issueIdInTheTracker</a></td>
+                <td class="PB_IssueType" title="@item.issueType.description">@item.issueType.name</td>
+                <td class="PB_IssueTrackerMore"></td>
+            </tr>
+        </table>
+        <div id="@{generateActionsId(item.id)}" class="PBItemDetails ActionPanel">
+            @panel.actions(item)
+        </div>
+        <div id="@{generateNotesId(item.id)}" class="PBItemDetails AdditionalData">
+            @panel.notes(item.id)
+        </div>
+    </li>
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        addSortableBehaviourToPBItems();
+        hideLinksAddingNewElements();
+    });
+
+    $(function() {
+        $( "input[name='client']" ).autocomplete({
+            source: @{ItemDataController.allClientsAsJavaScriptArray()}
+        });
+        $( "input[name='team']" ).autocomplete({
+            source: @{ItemDataController.allTeamsAsJavaScriptArray()}
+        });
+        $( "input[name='feature']" ).autocomplete({
+            source: @{ItemDataController.allFeaturesAsJavaScriptArray()}
+        });
+        $( "input[name='status']" ).autocomplete({
+            source: @{ItemDataController.allStatusesAsJavaScriptArray()}
+        });
+        $( "input[name='issueType']" ).autocomplete({
+            source: @{ItemDataController.allIssueTypesAsJavaScriptArray()}
+        });
+    });
+</script>
+
+@getIcon(name: String) = @{ routes.Assets.at("images/pb/" + name) }
+@generateActionsId(itemId: Long) = @{ "item_" + itemId + "_actions" }
+@generateNotesId(itemId: Long) = @{ "item_" + itemId + "_notes" }
+

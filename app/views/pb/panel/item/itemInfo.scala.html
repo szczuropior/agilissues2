@@ -1,0 +1,65 @@
+@(item: models.pb.item.PBItem)
+
+@import views.helper.ItemDataHelper
+
+
+<table class="Actions">
+    <tr>
+        <td class="Title" title="Story points / size of the item.
+                Please, move cursor to the current value if you want to change it.">SP</td>
+        <td class="Title">&nbsp;:&nbsp;</td>
+        <td class="Changeable">
+            <a href="#">---</a>
+            <table class="Action_Button ChangeButton SP_Table">
+                <tr><td><a href="#">1/2</a></td><td><a href="#">1</a></td><td><a href="#">2</a></td><td><a href="#">3</a></td></tr>
+                <tr><td><a href="#">5</a></td><td><a href="#">8</a></td><td><a href="#">13</a></td><td><a href="#">20</a></td></tr>
+                <tr><td><a href="#">40</a></td><td><a href="#">100</a></td><td><a href="#">BIG</a></td><td><a href="#">---</a></td></tr>
+            </table>
+        </td>
+        <td class="Separator"/>
+
+        <td class="Title">issue status</td>
+        <td class="Title">&nbsp;&raquo;&nbsp;</td>
+        <td>@itemDataElement("status", item.status.name)(item.id, itemStatusAndTypeClass)</td>
+
+        <td class="Title" title="scrum team">team</td>
+        <td class="Title"> &nbsp;&raquo;&nbsp;</td>
+        <td>@itemDataElement("team", item.team.name)(item.id, itemDataClass)</td>
+    </tr>
+    <tr>
+        <td class="Title" title="Priority.">prio</td>
+        <td class="Title">&nbsp;:&nbsp;</td>
+        <td class="Changeable">
+            <a href="#">&darr;&uarr;</a>
+            <table class="Action_Button ChangeButton SP_Table">
+                <tr><td><a href="#">first</a></td><td><a href="#">last</a></td></tr>
+                <tr><td><a href="#">page 1, top</a></td><td><a href="#">page 1, bottom</a></td></tr>
+                <tr><td><a href="#">page 2, top</a></td><td><a href="#">page 2, bottom</a></td></tr>
+                <tr><td><a href="#">page 3, top</a></td><td><a href="#">page 3, bottom</a></td></tr>
+            </table>
+        </td>
+        <td class="Separator"/>
+
+        <td class="Title">issue type</td>
+        <td class="Title">&nbsp;&raquo;&nbsp;</td>
+        <td>@itemDataElement("issueType", item.feature.name)(item.id, itemStatusAndTypeClass)</td>
+
+        <td class="Title">feature</td>
+        <td class="Title"> &nbsp;&raquo;&nbsp;</td>
+        <td>@itemDataElement("feature", item.feature.name)(item.id, itemDataClass)</td>
+    </tr>
+    <tr>
+        <td colspan="3"/>
+        <td class="Separator"/>
+        <td colspan="3"/>
+
+        <td class="Title">client</td>
+        <td class="Title"> &nbsp;&raquo;&nbsp;</td>
+        <td>@itemDataElement("client", item.client.name)(item.id, itemDataClass)</td>
+    </tr>
+</table>
+
+
+@itemStatusAndTypeClass = @{ "ItemStatusAndType" }
+@itemDataClass = @{ "ItemData" }
+

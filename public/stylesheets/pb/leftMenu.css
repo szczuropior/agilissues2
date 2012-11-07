@@ -1,0 +1,16 @@
+/* Group : groups menu section */
+.Group { margin-top: 1em; }
+/* GroupName : name of menu group, e.g.: ITEM, QUICK FILTERS, SAVED FILTERS */
+.GroupName { font:12px arial,sans-serif; color:#BDBDB7; font-weight:bold; }
+/* MenuList : list containing menu elements */
+.MenuList { list-style: none; padding: 0 0 0 4px; margin: 0px; }
+/* ListItem : item on the menu list (shows information or can be used for executing action) */
+.ListItem { margin: 1px; font-size:14pt; color:#424242; }
+.ListItem A:link, .ListItem A:visited { text-decoration:none; font-size:14pt; color:#424242; /*line-height:14pt; */}
+/* Buttons : buttons on menu bottom : HIGHLIGHT / SEARCH */
+.Buttons {  }
+/* Button : single button on menu bottom*/
+.Button {  }
+.Button A:link, .Button A:visited { text-decoration:none; color:#3299BB; /*line-height:14t; */}
+/* ItemSelectionAssociated : hidden by default, shown on selecting (marking) PB item */
+.ItemSelectionAssociated {}

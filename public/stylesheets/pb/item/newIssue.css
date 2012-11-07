@@ -1,0 +1,26 @@
+.NewItemData { float:left; }
+.NewItemElementName { color:#424242; }
+.NewItemDescription textarea { width: 42em; height: 6em; }
+.NewItemElementValue:hover .NewItemElementHiddenMenu { display: block; visibility:visible; display:inline; }
+.NewItemElementHiddenMenu { visibility:hidden; display:inline; text-decoration:none; font-style:italic; color:#424242; }
+
+.NewElementButtonLabel { color:#BB3232; cursor:pointer; }
+.ConfirmationQuestion { color:#BB3232; }
+
+.NewItemButtons { float: right; }
+.NewItemButton { border-style: solid; border-color: #769869; border-width: 1px; padding: 3px 5px; margin-left: 0.5em; border-radius:3px;}
+.NewItemButton span { color: #769869; }
+
+/* auto-complete suggestions */
+div.wicket-aa ul { list-style:none; padding: 0em 1em; margin:0; background-color:#f6f6f6; }
+div.wicket-aa ul li.selected { text-decoration:underline; cursor:pointer; }
+
+/* element displayed over other elements */
+.Overlay {position:relative;}
+.Overlay * {position:relative; z-index:1;}
+
+a { text-decoration:none; }
+a:hover { cursor:pointer; text-decoration:none; }
+
+.ErrorMessage { color: #B13011; }
+.NewItemSubmitSection { float: right; }

@@ -1,0 +1,36 @@
+.AlignedTable { width: 100%; /*is used in script to specify which tables columns should be aligned*/ }
+.PBItemsContainer { list-style: none; padding: 0; margin: 0; }
+.PBItemListElement { min-height:2em; display:block; }
+.BacklogItem { width:100%; height:2em; background-color:#f6f6f6; }
+.BacklogItemHeader { width:100%; height:2.5em; font: Helvetica, sans-serif; }
+.BacklogItemHeader th { color:#ffffff; background-color:#769869; font-weight:bold; border-radius:2px;
+      display:table-cell; text-align:center; vertical-align:middle; }
+.PB_SP { width:2em; text-align:center; }
+.PB_Status { width:28px; }
+.PB_Client { width:1.8em; text-align:center; }
+.PB_ItemActions, .PB_ItemInfo { width:2em; color:#769869; display:inline; border: 1px solid #769869; padding: 0 0.5em;
+        border-radius:4px; }
+.PB_ItemActions:hover, .PB_ItemInfo:hover { cursor:pointer; }
+.PB_Team { width:2em; text-align:center; }
+.PB_Feature { width:1.7em; text-align:center; }
+.PB_Item span { font: 18px Georgia; }
+.PB_Item:hover .PB_ItemMenus { display:inline-block; }
+.PB_Item_Descr:hover { cursor: move; }
+.PB_ItemMenus { display:none; }
+
+.PB_Item_Severity { width:1.5em; }
+.PB_Separator { width:.2px; background-color:#f6f6f6; }
+.PB_BugzillaNr { width:5.5em; }
+.PB_IssueType { width:2.5em; }
+.PB_IssueTrackerMore { width:1em; }
+div.wrapper { margin-bottom:1em; }
+A:link,A:visited { font-size:12pt; text-decoration:none; color:#424242; line-height:12pt; }
+A:active { color:red; }
+
+.PBItemDetails { border-radius:6px; font:17px Georgia; color:#424242; border:2px solid #e0e0e0; }
+.PBItemDetails > td { border: 3px solid #e0e0e0; border-radius:6px; font: 17px Georgia; }
+
+.ItemStatusAndType { width:9em }
+.ItemData { width:12em }
+
+.AddNewElementLink { display:inline; }

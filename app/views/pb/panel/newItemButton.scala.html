@@ -1,0 +1,121 @@
+<a id="add-new-item">add new item</a>
+<div id="new-item-form" class="NewItemData">
+    <form>
+        <div>
+            <table>
+                <tr>
+                    <td class="NewItemElementName">issue tracker : </td>
+                    <td class="NewItemElementValue">
+                        <select id="issue-tracker">
+                            <option value="bugz">bugzilla</option><option value="gith">github issues</option>
+                        </select>
+                    </td>
+                    <td class="NewItemElementName"> &nbsp; issue nr : </td>
+                    <td class="NewItemElementValue">
+                        <input type="text" id="issue-nr" value="12341" size="10" />
+                        <span> &nbsp; </span>
+                        <a href="#" class="NewItemElementHiddenMenu" title="automatically fills remaining fields using issue tracker data">fill remaining fields</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="NewItemDescription">
+                <div class="NewItemElementName">description : </div>
+                <textarea id="description">I need this feature!</textarea>
+            </div>
+            <div id="new_item_data"></div>
+        </div>
+        <div class="NewItemSubmitSection">
+            <div><br/></div>
+            <div class="ErrorMessage">
+                <span id="error_message"></span>
+            </div>
+            <div><br/></div>
+        </div>
+    </form>
+    <span id="error-label" class="InputErrorMessage">All fields need to be filled !</span>
+</div>
+
+
+<script>
+
+$(function() {
+    var errorLabel = $("#error-label");
+    var issueNr = $("#issue-nr");
+    var issueTracker = $("#issue-tracker");
+    var description = $("#description");
+    errorLabel.hide();
+
+    $( "#add-new-item" ).click(function() { $( "#new-item-form" ).dialog( "open" ); } );
+
+    $( "#new-item-form" ).dialog({
+        autoOpen: false,
+        height: 450,
+        width: 700,
+        modal: true,
+        buttons: {
+            "Add new item": function() {
+                var inputValid = validateAllFields();
+                if (inputValid) {
+                    addNewPBItem();
+                    clearAllFields();
+                    closeWindow();
+                }
+            },
+            "Add and continue": function() {
+                var inputValid = validateAllFields();
+                if (inputValid) {
+                    addNewPBItem();
+                    clearAllFields();
+                }
+            },
+            Cancel: function() {
+                clearAllFields();
+                closeWindow();
+            }
+        },
+        open: function() {
+            $('.ui-dialog-buttonpane').find('button').removeClass().addClass('NewItemButton');
+        },
+        close: function() {
+            clearAllFields();
+            closeWindow();
+        }
+    });
+
+    function validateAllFields() {
+        var isValid = true;
+        isValid = isValid & validateField(issueNr);
+        isValid = isValid & validateField(issueTracker);
+        isValid = isValid & validateField(description);
+        return isValid;
+    }
+
+    function validateField(field) {
+        if (field.val().length > 0) {
+            errorLabel.hide();
+            field.removeClass("InputError");
+            return true;
+        } else {
+            errorLabel.show();
+            field.addClass("InputError");
+            return false;
+        }
+    }
+
+    function closeWindow() { $("#new-item-form").dialog( "close" ); }
+
+    function clearAllFields() {
+        clearField(description);
+        clearField(issueNr);
+        clearField(issueTracker);
+    }
+
+    function clearField(field) {
+        field.val("");
+        field.removeClass("InputError");
+    }
+
+    function addNewPBItem() { alert("adding new item !"); }
+
+});
+</script>
