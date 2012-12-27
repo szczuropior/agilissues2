@@ -20,7 +20,7 @@ function handleItemDataValueChange(type, value, newEltLinkId) {
     });
     }
 
-function createItemDataElementResourcePath(type, value) {return '/' + type + '/' + value + '/exists';}
+function createItemDataElementResourcePath(type, value) {return '/' + type +  + '/exists/' + value;}
 
 function setVisibilityOfHtmlElement(elementId, visible) {
     if (visible) $('#' + elementId).show(); else $('#' + elementId).hide();

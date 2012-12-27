@@ -1,6 +1,6 @@
-package models.pb.item.data
+package models.pb.item.info
 
-import models.util.Color
+import models.pb.item.data.Color
 
 
 class IssueType(val name: String, val description: String = "", val color: Color = Color.WHITE) extends PBItemInfo {

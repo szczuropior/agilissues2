@@ -1,4 +1,4 @@
-package models.util
+package models.pb.item.data
 
 /**
  * Author: michal, 14.10.12

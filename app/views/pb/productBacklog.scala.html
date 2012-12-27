@@ -1,10 +1,14 @@
+@import models.pb.item.data.IssueTrackerData
+@import models.pb.item.info.IssueTracker
+
+
 <div class="Product_Backlog" >
     <div class="Left_Menu">@leftMenu()</div>
     <div class="PB_Items">
         <div>@pbItems(Seq(
-            models.pb.item.PBItem(1, "1111", models.pb.item.data.IssueTracker.getDefaultValue, "#"),
-            models.pb.item.PBItem(2, "22222222222222", models.pb.item.data.IssueTracker.getDefaultValue, "#"),
-            models.pb.item.PBItem(3, "3333333333333", models.pb.item.data.IssueTracker.getDefaultValue, "#")
+            models.pb.item.RichPBItem("1111", new IssueTrackerData(IssueTracker.getDefaultValue, "#")),
+            models.pb.item.RichPBItem("22222222222222", new IssueTrackerData(IssueTracker.getDefaultValue, "#")),
+            models.pb.item.RichPBItem("3333333333333", new IssueTrackerData(IssueTracker.getDefaultValue, "#"))
         ))</div>
         <div>@pbFilters()</div>
     </div>

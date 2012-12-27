@@ -1,15 +1,9 @@
 package services.pb
 
-import models.pb.item.PBItem
-import models.pb.item.data.{PBItemInfo, PBItemInfoType}
+import models.pb.item.RichPBItem
+import models.pb.item.data.IssueTrackerData
 
 trait PBItemService {
-  def addNewItem(item: PBItem): PBItem
-  def getAllValuesForTheDataType(dataType: PBItemInfoType): Array[PBItemInfo]
-  def getAllTextValuesForTheInfoType(infoType: PBItemInfoType): Array[String]
-  def addNewValueForTheItemDataType(infoType: PBItemInfoType, value: String, description: String): PBItemInfo
-  def getPBItems(limit: Int, firstItem: PBItem = null): Array[PBItem]
-  def findItemInfoByValue(textValue: String, infoType: PBItemInfoType): Option[PBItemInfo]
-  def updateItemInformation(item: PBItem, newValue: PBItemInfo): Boolean
+  def addNewItem(description: String, issueTrackerData: IssueTrackerData): RichPBItem
 }
 

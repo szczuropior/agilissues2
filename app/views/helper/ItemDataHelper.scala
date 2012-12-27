@@ -1,7 +1,7 @@
 package views.helper
 
 import scala.Array
-import models.pb.item.data.PBItemInfo
+import models.pb.item.info.PBItemInfo
 
 
 //TODO this class was used by wicket views, check whether it is needed after switching to play framework!

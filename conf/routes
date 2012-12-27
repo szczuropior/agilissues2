@@ -6,21 +6,23 @@
 GET     /                           controllers.Application.index
 
 # product backlog
-GET     /pb            controllers.Application.productBacklog
+GET     /pb                         controllers.Application.productBacklog
+POST    /pb/item                    controllers.ProductBacklogController.addNewItemToPb(description: String, issueTrackerId: Int, issueIdInTheTracker: String)
 
 # item data
-GET     /clients/all             controllers.ItemDataController.allClients
-GET     /teams/all               controllers.ItemDataController.allTeams
-GET     /features/all            controllers.ItemDataController.allFeatures
-GET     /statuses/all            controllers.ItemDataController.allStatuses
-GET     /issue-types/all         controllers.ItemDataController.allIssueTypes
+GET     /clients/all                controllers.ItemDataController.allClients
+GET     /teams/all                  controllers.ItemDataController.allTeams
+GET     /features/all               controllers.ItemDataController.allFeatures
+GET     /statuses/all               controllers.ItemDataController.allStatuses
+GET     /issue-types/all            controllers.ItemDataController.allIssueTypes
 
-GET     /client/:value/exists             controllers.ItemDataController.isClient(value: String)
-GET     /team/:value/exists               controllers.ItemDataController.isTeam(value: String)
-GET     /feature/:value/exists            controllers.ItemDataController.isFeature(value: String)
-GET     /status/:value/exists             controllers.ItemDataController.isStatus(value: String)
-GET     /issue-type/:value/exists         controllers.ItemDataController.isIssueType(value: String)
+GET     /client/exists/:value             controllers.ItemDataController.isClient(value: String)
+GET     /team/exists/:value               controllers.ItemDataController.isTeam(value: String)
+GET     /feature/exists/:value            controllers.ItemDataController.isFeature(value: String)
+GET     /status/exists/:value             controllers.ItemDataController.isStatus(value: String)
+GET     /issue-type/exists/:value         controllers.ItemDataController.isIssueType(value: String)
 
+GET     /javascriptPBRoutes     controllers.ProductBacklogController.pbJavaScriptRoutes
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
