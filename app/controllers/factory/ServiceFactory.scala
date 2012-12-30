@@ -1,4 +1,4 @@
-package services.factory
+package factories
 
 import services.pb.impl.Neo4jPBItemService
 import services.issuetracker.DummyIssueTrackerService

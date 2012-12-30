@@ -1,4 +1,4 @@
-package services.data
+package store
 
 /**
  * Author: michal, 23.10.12

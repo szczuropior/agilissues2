@@ -16,7 +16,7 @@ object ProductBacklogController extends Controller {
   def pbJavaScriptRoutes() = Action { implicit request =>
     Ok(
       Routes.javascriptRouter("pbJsRoutes")(
-        routes.javascript.ProductBacklogController.addNewItemToPb
+        controllers.routes.javascript.ProductBacklogController.addNewItemToPb
       )
     ).as("text/javascript");
   }

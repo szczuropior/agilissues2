@@ -1,7 +1,7 @@
 package controllers
 
+import _root_.store.ItemDataStore
 import play.api.mvc.{Action, Controller}
-import services.data.ItemDataStore
 import play.api.libs.json.Json
 import scala._
 import scala.Predef._
