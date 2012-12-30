@@ -8,7 +8,8 @@ object ApplicationBuild extends Build {
     val appVersion      = "1.0-SNAPSHOT"
 
     val appDependencies = Seq(
-      "org.neo4j" % "neo4j" % "1.8.1"
+      "org.neo4j" % "neo4j" % "1.8.1",
+      "org.scalatest" %% "scalatest" % "1.8"
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(

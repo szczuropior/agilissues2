@@ -1,9 +1,7 @@
 package models.pb.item.info
 
-import models.pb.item.data.Color
 
-
-class Client(val name: String, val description: String = "", val color: Color = Color.WHITE) extends PBItemInfo {
+class Client(val name: String, val description: String = "") extends PBItemInfo {
   def this() = this("")
 
   val id: Long = 0

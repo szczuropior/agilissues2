@@ -1,9 +1,7 @@
 package models.pb.item.info
 
-import models.pb.item.data.Color
 
-
-class Status(val name: String, val description: String = "", val color: Color = Color.WHITE) extends PBItemInfo {
+class Status(val name: String, val description: String = "") extends PBItemInfo {
   val id: Long = 0
 
   def this() = this("")

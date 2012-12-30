@@ -1,4 +1,5 @@
-@(pbItems: Seq[models.pb.item.PBItem])
+@(pbItems: Seq[models.pb.item.RichPBItem], itemInfoValueColors: models.pb.item.data.ItemInfoColors)
+
 <table class="AlignedTable">
     <tr class="BacklogItemHeader">
         <th class="PB_Status" title="Status"><img src="@getIcon("status_h.png")"/></th>
@@ -14,22 +15,22 @@
 </table>
 
 <ul id="pb_items" class="PBItemsContainer">
-    @pbItems.map(pbItem(_))
+    @pbItems.map(pbItem(_)(itemInfoValueColors))
 </ul>
 
 
-@pbItem(item: models.pb.item.PBItem) = {
+@pbItem(item: models.pb.item.RichPBItem)(colors: models.pb.item.data.ItemInfoColors) = {
     <li id="pb_item" class="PBItemListElement">
         <table class="AlignedTable">
             <tr class="BacklogItem">
                 <td class="PB_Status"><img alt="Stat" title="@item.status.name" src="@getIcon("status.png")"
-                    style="background-color: #@item.status.colorStr;"/></td>
+                    style="background-color: @colors(item.status).hexColor;"/></td>
                 <td class="PB_SP"><span>---</span></td>
-                <td class="PB_Client"><img style="background-color: #@item.client.colorStr;"
+                <td class="PB_Client"><img style="background-color: @colors(item.client).hexColor;"
                                            class="Client_Img" alt="cli" title="@item.client.name" src="@getIcon("client.png")"/></td>
-                <td class="PB_Team"><img class="Team_Img" style="background-color: #@item.team.colorStr;"
+                <td class="PB_Team"><img class="Team_Img" style="background-color: @colors(item.team).hexColor;"
                                          alt="team" title="@item.team.name" src="@getIcon("team.png")"/></td>
-                <td class="PB_Feature"><img style="background-color: #@item.status.colorStr;"
+                <td class="PB_Feature"><img style="background-color: @colors(item.status).hexColor;"
                                             class="Feature_Img" alt="ftr" title="@item.feature.name" src="@getIcon("feature.png")"/></td>
                 <td class="PB_Item">
                     <span class="PB_ItemMenus">

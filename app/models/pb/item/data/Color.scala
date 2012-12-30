@@ -1,14 +1,16 @@
 package models.pb.item.data
 
-/**
- * Author: michal, 14.10.12
- */
+class Color private (val color: String) {
+  if (Color.HEX_COLOR.matcher(color).matches())
+    throw new IllegalArgumentException("Illegal value for color : " + color);
+
+  def hexColor = Color.HTML_PREFIX + color
+}
 
 object Color {
-  val WHITE = Color("23f10f")
+  private val HEX_COLOR = """\d{6}""".r.pattern
+  private val HTML_PREFIX = "#"
 
   def apply(rgb: String) = new Color(rgb)
 }
-
-class Color(val hexColor: String)
 
