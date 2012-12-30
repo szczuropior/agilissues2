@@ -20,9 +20,9 @@ class ColorTest extends FlatSpec with ShouldMatchers {
     evaluating { Color("qwa112") } should produce [IllegalArgumentException]
   }
 
-  "html " should "construct object when valid rgb value is provided" in {
+  "hexColor" should "be prefixed by '#'" in {
     val color = Color("23af19")
-    color.color should equal ("#23af19")
+    color.hexColor should equal ("#23af19")
   }
 
 
