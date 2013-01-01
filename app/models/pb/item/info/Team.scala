@@ -11,6 +11,7 @@ class Team(val name: String, val description: String = "") extends PBItemInfo {
 
 case object Team extends PBItemInfoType {
   def getDefaultValue = DefaultTeam
+  def apply(name: String, description: String = "") = new Team(name, description)
 }
 
 object DefaultTeam extends Team() {

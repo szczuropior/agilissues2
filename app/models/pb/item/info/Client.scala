@@ -12,6 +12,7 @@ class Client(val name: String, val description: String = "") extends PBItemInfo 
 
 case object Client extends PBItemInfoType {
   def getDefaultValue = DefaultClient
+  def apply(name: String, description: String = "") = new Client(name, description)
 }
 
 object DefaultClient extends Client()

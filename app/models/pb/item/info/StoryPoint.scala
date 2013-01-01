@@ -11,6 +11,7 @@ class StoryPoint(val name: String, val description: String = "") extends PBItemI
 
 case object StoryPoint extends PBItemInfoType {
   def getDefaultValue = DefaultStoryPoint
+  def apply(name: String, description: String = "") = new StoryPoint(name, description)
 }
 
 object DefaultStoryPoint extends StoryPoint() {

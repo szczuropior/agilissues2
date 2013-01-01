@@ -12,6 +12,7 @@ class IssueType(val name: String, val description: String = "") extends PBItemIn
 
 case object IssueType extends PBItemInfoType {
   def getDefaultValue = DefaultIssueType
+  def apply(name: String, description: String = "") = new IssueType(name, description)
 }
 
 

@@ -14,6 +14,7 @@ class Feature(val name: String, val description: String = "") extends PBItemInfo
 
 case object Feature extends PBItemInfoType {
   def getDefaultValue = DefaultFeature
+  def apply(name: String, description: String = "") = new Feature(name, description)
 }
 
 object DefaultFeature extends Feature() {

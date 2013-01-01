@@ -11,6 +11,7 @@ class Status(val name: String, val description: String = "") extends PBItemInfo 
 
 case object Status extends PBItemInfoType {
   def getDefaultValue = DefaultStatus
+  def apply(name: String, description: String = "") = new Status(name, description)
 }
 
 object DefaultStatus extends Status() {

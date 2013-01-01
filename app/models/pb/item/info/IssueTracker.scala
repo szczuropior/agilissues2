@@ -14,6 +14,7 @@ class IssueTracker(val name: String, val description: String = "") extends PBIte
 
 case object IssueTracker extends PBItemInfoType {
   def getDefaultValue = DefaultIssueTacker
+  def apply(name: String, description: String = "") = new IssueTracker(name, description)
 }
 
 object DefaultIssueTacker extends IssueTracker("-") {
